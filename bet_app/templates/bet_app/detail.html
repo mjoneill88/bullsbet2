@@ -1,0 +1,15 @@
+<h1>{{ bet.bet_text }}</h1>
+
+{% if error_message %}<p><strong>{{ eror_message }}
+</strong></p>{% endif %}
+
+<form action="{% url 'bet_app:vote' bet.id %}"
+method="post">
+
+{% csrf_token %}
+{% for choice in bet.choice_set.all %}
+<input type="radio" name="choice" value="{{ choice.id }}" />
+<label>{{choice.choice_text }}</label><br />
+{% endfor %}
+<input type="submit" value="Choose"/>
+</form>

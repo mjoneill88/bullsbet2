@@ -1,0 +1,11 @@
+<h2><a href='/bullsbet/mybets/'>Link to Your Bets</a></h2>
+<h2>Active Bets</h2>
+{% if latest_bet_list %}
+    <ul>
+    {% for bet in latest_bet_list %}
+        <li><a href="/bullsbet/{{ bet.id }}/">{{ bet.bet_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No bets are available.</p>
+{% endif %}
