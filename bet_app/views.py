@@ -48,9 +48,13 @@ def vote(request, bet_id):
         if MyBets.objects.filter(bet_taken=bet_id, user_id=request.user.id).exists():
             pass
         else:
-            add_my_bet.user = request.user
-            add_my_bet.bet_taken = bet_id
-            add_my_bet.save()
+            # add_my_bet.user = request.user
+            # add_my_bet.bet_taken = bet_id
+            # add_my_bet.save()
+
+            MyBets.objects.create(
+            user = request.user,
+            bet_taken = Bet.objects.get(pk=bet_id))
 
         return HttpResponseRedirect(reverse('bet_app:results', args=(bet.id,)))
 
