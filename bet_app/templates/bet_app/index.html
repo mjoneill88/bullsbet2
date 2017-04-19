@@ -1,11 +1,39 @@
-<h2><a href='/bullsbet/mybets/'>Link to Your Bets</a></h2>
-<h2>Active Bets</h2>
-{% if latest_bet_list %}
-    <ul>
-    {% for bet in latest_bet_list %}
-        <li><a href="/bullsbet/{{ bet.id }}/">{{ bet.bet_text }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No bets are available.</p>
-{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bullsbet</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<style type="text/css">
+ body { background: #ccccff !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+</style>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">BullsBet</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="/bullsbet/mybets/">MyBets</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- <h2><a href='/bullsbet/mybets/'>Link to Your Bets</a></h2> -->
+  <h2>Active Bets</h2>
+  {% if latest_bet_list %}
+  <ul>
+  {% for bet in latest_bet_list %}
+  <li><a href="/bullsbet/{{ bet.id }}/">{{ bet.bet_text }}</a></li>
+  {% endfor %}
+  </ul>
+  {% else %}
+  <p>No bets are available.</p>
+  {% endif %}
+</body
